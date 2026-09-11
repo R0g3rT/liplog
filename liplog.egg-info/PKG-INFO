@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: liplog
+Version: 0.1.0
+Summary: Python helpers for create a log file in the script folder and display it in the terminal
+Author: Robert Lippert
+Project-URL: Homepage, https://github.com/R0g3rT/liplog
+Project-URL: Repository, https://github.com/R0g3rT/liplog
+Project-URL: Issues, https://github.com/R0g3rT/liplog/issues
+Keywords: log,logging,terminal,file,liplog
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# Liplog
+
+mit dieser Bibliothke können sie einfach eine Logdatei im selben Ordner erstellen ohne eine komplette Loglogic zuschreiben.
+
+## Instalation
+
+Instalation über PIP:
+
+```bash
+python pip install liplog
+```
+Instalation direk von GitHub (Git muss Instaliert sein):
+
+```bash
+python pip install git+https://github.com/R0g3rT/liplog.git
+```
+
+Uninstall
+```bash
+python pip uninstall liplog
+```
+
+## Verwendung
+
+```python
+import liplpg
+
+write_log("API client gestartet", "INFO")
+```
