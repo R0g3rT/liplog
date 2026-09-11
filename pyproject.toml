@@ -1,6 +1,6 @@
 [project]
 name = "liplog"
-version = "0.1.1"
+version = "0.1.2"
 description = "Python helpers for create a log file in the script folder and display it in the terminal"
 readme = "README.md"
 requires-python = ">=3.10"
