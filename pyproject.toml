@@ -1,0 +1,29 @@
+[project]
+name = "liplog"
+version = "0.1.0"
+description = "Python helpers for create a log file in the script folder and display it in the terminal"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = Robert Lippert}
+]
+keywords = ["log", "logging", "terminal", "file", "liplog"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+[project.urls]
+Homepage = "https://github.com/R0g3rT/liplog"
+Repository = "https://github.com/R0g3rT/liplog"
+Issues = "https://github.com/R0g3rT/liplog/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["liplog*"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
