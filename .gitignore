@@ -17,8 +17,10 @@ venv/
 .env
 .env.*
 !.env.example
-log/
+liplog/logs/
 *.log
+tests/
+
 
 # Editors and operating systems
 .idea/
