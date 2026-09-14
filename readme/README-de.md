@@ -2,11 +2,15 @@
 
 Einfaches Python-Logging-Paket zum Erstellen einer Logdatei im Projektordner und gleichzeitig zur Ausgabe in der Konsole.
 
+## Sprache
+
+- [README English](README.md)
+
 ## Funktionen
 
 - Automatische Erstellung eines Log-Ordners
 - Logdatei mit Zeitstempel
-- Ausgabe in der Konsole
+- Ausgabe in der Konsole in Echtzeit
 - Einfache API für schnelle Nutzung
 
 ## Installation
