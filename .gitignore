@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 build/
 dist/
-*.egg-info/
+liplog.egg-info/
 .pytest_cache/
 .test-*/
 .coverage
