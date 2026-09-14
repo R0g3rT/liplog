@@ -1,29 +1,68 @@
 # Liplog
 
-mit dieser Bibliothke können sie einfach eine Logdatei im selben Ordner erstellen ohne eine komplette Loglogic zuschreiben.
+Einfaches Python-Logging-Paket zum Erstellen einer Logdatei im Projektordner und gleichzeitig zur Ausgabe in der Konsole.
 
-## Instalation
+## Funktionen
 
-Instalation über PIP:
+- Automatische Erstellung eines Log-Ordners
+- Logdatei mit Zeitstempel
+- Ausgabe in der Konsole
+- Einfache API für schnelle Nutzung
+
+## Installation
+
+Installieren über PyPI:
 
 ```bash
-python pip install liplog
+python -m pip install liplog
 ```
-Instalation direk von GitHub (Git muss Instaliert sein):
+
+Direkt von GitHub installieren:
 
 ```bash
-python pip install git+https://github.com/R0g3rT/liplog.git
+git clone https://github.com/R0g3rT/liplog.git
+cd liplog
+python -m pip install .
 ```
 
-Uninstall
+Aktualisieren:
+
 ```bash
-python pip uninstall liplog
+python -m pip install --upgrade liplog
+```
+
+Deinstallieren:
+
+```bash
+python -m pip uninstall liplog
 ```
 
 ## Verwendung
 
 ```python
-import liplpg
+from liplog import write_log
 
 write_log("API client gestartet", "INFO")
+write_log("Wichtige Warnung", "WARNING")
+write_log("Ein Fehler ist aufgetreten", "ERROR")
 ```
+
+Beispielausgabe:
+
+```text
+[2026-09-14 12:00:00] [INFO] API client gestartet
+[2026-09-14 12:00:01] [WARNING] Wichtige Warnung
+[2026-09-14 12:00:02] [ERROR] Ein Fehler ist aufgetreten
+```
+
+## Unterstützte Log-Level
+
+- `INFO`
+- `WARNING`
+- `ERROR`
+- `DEBUG`
+- `CRITICAL`
+
+## Hinweis
+
+Die Logdatei wird standardmäßig im Ordner `logs` neben dem aufgerufenen Script gespeichert.
