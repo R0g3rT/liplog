@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-liplog/__init__.py
-liplog/liplog.py
-liplog.egg-info/PKG-INFO
-liplog.egg-info/SOURCES.txt
-liplog.egg-info/dependency_links.txt
-liplog.egg-info/top_level.txt
-tests/test_liplog.py
