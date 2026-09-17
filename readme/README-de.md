@@ -64,8 +64,9 @@ Beispielausgabe:
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `DEBUG`
+- `SUCCESS`
 - `CRITICAL`
+- `RUN`
 
 ## Hinweis
 

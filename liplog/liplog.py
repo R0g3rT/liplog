@@ -28,7 +28,6 @@ class _ColorFormatter(_DisplayLevelFormatter):
         "WARNING": "93", # Yellow
         "SUCCESS": "92", # Green
         "RUN": "94", # Blue
-        "DEBUG": "90", # Gray
         "INFO": "0", # White
         "CRITICAL": "95", # Magenta
     }
@@ -42,9 +41,9 @@ class _ColorFormatter(_DisplayLevelFormatter):
 def setup_logging(log_name: str | None = None) -> str | None:
     """Configure console and file logging and return the log file path."""
     script_dir = Path(sys.argv[0]).resolve().parent
-    log_dir = script_dir / "log"
+    log_dir = script_dir / "logs"
     log_dir.mkdir(exist_ok=True)
-    script_name = log_name or Path(sys.argv[0]).stem or "lippertzpy"
+    script_name = log_name or Path(sys.argv[0]).stem or "liplog"
     safe_name = "".join(
         character if character.isalnum() or character in "-_" else "_"
         for character in script_name
