@@ -2,6 +2,7 @@ import logging
 import sys
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 
 class _DisplayLevelFormatter(logging.Formatter):
@@ -38,7 +39,7 @@ class _ColorFormatter(_DisplayLevelFormatter):
         return f"\033[{color}m{message}\033[0m" if color else message
 
 
-def setup_logging(log_name: str | None = None) -> str | None:
+def setup_logging(log_name: Optional[str] = None) -> Optional[str]:
     """Configure console and file logging and return the log file path."""
     script_dir = Path(sys.argv[0]).resolve().parent
     log_dir = script_dir / "logs"
