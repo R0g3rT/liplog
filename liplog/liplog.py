@@ -39,6 +39,9 @@ class _ColorFormatter(_DisplayLevelFormatter):
         return f"\033[{color}m{message}\033[0m" if color else message
 
 
+_logger = logging.getLogger("liplog")
+
+
 def setup_logging(log_name: Optional[str] = None) -> Optional[str]:
     """Configure console and file logging and return the log file path."""
     script_dir = Path(sys.argv[0]).resolve().parent
@@ -46,8 +49,7 @@ def setup_logging(log_name: Optional[str] = None) -> Optional[str]:
     log_dir.mkdir(exist_ok=True)
     script_name = log_name or Path(sys.argv[0]).stem or "liplog"
     safe_name = "".join(
-        character if character.isalnum() or character in "-_" else "_"
-        for character in script_name
+        c if c.isalnum() or c in "-_" else "_" for c in script_name
     )
     log_file = log_dir / f"{safe_name}-{datetime.now():%Y-%m-%d_%H-%M}.log"
 
@@ -57,19 +59,23 @@ def setup_logging(log_name: Optional[str] = None) -> Optional[str]:
     file_handler.setFormatter(_DisplayLevelFormatter(log_format, datefmt=date_format))
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(_ColorFormatter(log_format, datefmt=date_format))
-    logging.basicConfig(level=logging.INFO, handlers=[file_handler, console_handler])
+
+    _logger.handlers.clear()          # keine Doppel-Handler bei erneutem Aufruf
+    _logger.setLevel(logging.INFO)
+    _logger.propagate = False         # nicht zusätzlich an den Root-Logger
+    _logger.addHandler(file_handler)
+    _logger.addHandler(console_handler)
     return str(log_file)
 
 
 _log_file = setup_logging()
 
 
-def write_log(message: str, level, retries: int = 6, delay_ms: int = 150) -> None:
-    """Write a message to the configured log and console."""
+def write_log(message: str, level: str = "INFO", retries: int = 6, delay_ms: int = 150) -> None:
     del retries, delay_ms
     if _log_file is not None:
         normalized_level = level.upper()
-        logging.log(
+        _logger.log(
             getattr(logging, normalized_level, logging.INFO),
             message,
             extra={"display_level": normalized_level},
